@@ -17,7 +17,12 @@ def fetchJson():
             "client_secret": CLIENT_SECRET,
         },
     )
-    playlist_id = input("Paste playlist id here: ")
+    playlist = input("Paste playlist link here: ")
+
+    pList = playlist.split("list/")
+
+    playlist_id = pList[1].split("?si")
+
     # convert the response to JSON
     auth_response_data = auth_response.json()
     # save the access token
